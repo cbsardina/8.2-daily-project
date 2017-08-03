@@ -8,7 +8,15 @@
    you'll need to parse through that first before you can start to
    write your logic.
 */
-dealt = ["2", "8", "K", "A"];
+let hand1 = ["2", "2", "8"];
+let hand2 = ["2", "2", "K"];
+let hand3 = ["2", "Q"];
+let hand4 = ["7", "J"];
+let hand5 = ["7", "A"];
+let hand6 = ["8", "J", "A"];
+let hand7 = ["8", "A", "J"];
+let hand8 = ["8", "7", "A", "A"];
+let hand9 = ["K", "A"];
 
 function handValue (hand) {
   let parsedHand = [];
@@ -51,7 +59,16 @@ function handValue (hand) {
   }
   return finalHand;
 }
-console.log(handValue(dealt));
+console.log(handValue(hand1));
+console.log(handValue(hand2));
+console.log(handValue(hand3));
+console.log(handValue(hand4));
+console.log(handValue(hand5));
+console.log(handValue(hand6));
+console.log(handValue(hand7));
+console.log(handValue(hand8));
+console.log(handValue(hand9));
+
 
 /* -----  Hints ------
 
