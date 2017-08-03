@@ -8,11 +8,11 @@
    you'll need to parse through that first before you can start to
    write your logic.
 */
-ddealt = ["2", "8", "K", "A"];
+dealt = ["2", "8", "K", "A"];
 
 function handValue (hand) {
   let parsedHand = [];
-  let aces = [];
+  let aceArr = [];
   for (let i=0; i < hand.length; i++) {
     let card = hand[i];
     if (card === "K"
@@ -22,36 +22,36 @@ function handValue (hand) {
           parsedHand.push(card);
         }
         else if (card === "A") {
-          aces.push(card);
+          aceArr.push(card);
         }
         else {
           parsedHand.push(parseInt(card, 10));
         }
   }
-  let numsAndFace = 0;
+  let finalHand = 0;
   for (let j=0; j < parsedHand.length; j++) {
     let smalls = parsedHand[j];
-    numsAndFace = numsAndFace + smalls;
+    finalHand = finalHand + smalls;
   }
-  for (let k=0; k < aces.length; k++) {
-
-
+  if (aceArr.length === 0) {
+    return finalHand;
   }
-  console.log("hand" + parsedHand);
-  console.log("aces" + aces);
-  console.log(numsAndFace);
+    else {
+      for (let k=0; k < aceArr.length; k++) {
+        if (finalHand <= 10) {
+          let aces = aceArr[k];
+          aces = 11;
+          finalHand = finalHand + aces;
+        }
+        else if (finalHand >10) {
+          aces = 1;
+          finalHand = finalHand + aces;
+        }
+    }
+  }
+  return finalHand;
 }
-handValue(dealt);
-
-  // var text = "";
-  // var i = 0;
-  // while (i < 10) {
-  //     text += "The number is " + i;
-  //     i++;
-  //   }
-  //   console.log(text);
-
-// console.log(handValue(["2", "2", "8"]));
+console.log(handValue(dealt));
 
 /* -----  Hints ------
 
